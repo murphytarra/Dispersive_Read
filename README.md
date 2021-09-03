@@ -94,3 +94,7 @@ If one would like to save the figure simulated for the reflection Coefficient, o
 ```javascript
 P.run(save = True)
 ```
+
+## Example Simulation for three level system
+
+
