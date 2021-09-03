@@ -6,7 +6,7 @@ Reflectometry is a measurement technique which enables spin readout of an electr
 
 This package is a tool which allows you to simulate the Dispersion Readout for Multilevel Systems, without the use of the RWA. Here the susceptibility of a double quantum dot (DQD) is calculated using  a cicuit QED formalism and sweeps are carried out over a range of different magnetic fields and magnetitudes of detuning and a plot of the spectrum is simulated.
 
-For further information on the simulation and derivation, please read: 
+For further information on the simulation and derivation, please read the included Pdf 'Dispersive Readout of Multilevel Systems'
 
 ## Initialization 
 
