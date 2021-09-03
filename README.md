@@ -1,4 +1,4 @@
-# Dispersive Readout Package Documentation
+# Documentation
 
 ## Introduction
 
