@@ -4,7 +4,7 @@
 
 Reflectometry is a measurement technique which enables spin readout of an electron without collapsing its wavefunction, and can be used in a variety of systems. One such system in which reflectometry can be used measurement of the spin of a quantum dot or a series of quantum dots. Previous analysis of this system has been completed for a two level system coupled with a superconducting resonator, whereby the rotating wave approximation (RWA) is used. 
 
-This package is a tool which allows you to simulate the Dispersion Readout for Multilevel Systems, without the use of the RWA. Here the susceptibility of a double quantum dot (DQD) is calculated using  a cicuit QED formalism and sweeps are carried out over a range of different magnitudes and magnetitudes of detuning and a plot of the spectrum is simulated.
+This package is a tool which allows you to simulate the Dispersion Readout for Multilevel Systems, without the use of the RWA. Here the susceptibility of a double quantum dot (DQD) is calculated using  a cicuit QED formalism and sweeps are carried out over a range of different magnetic fields and magnetitudes of detuning and a plot of the spectrum is simulated.
 
 For further information on the simulation and derivation, please read: 
 
