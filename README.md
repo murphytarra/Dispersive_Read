@@ -87,7 +87,7 @@ To print out the relevant parameters for the system, one can use:
 P.print_parameters()
 ```
 
-## Save Dispersive Scan Readout
+## Save Simulation as .png
 
 If one would like to save the figure simulated for the reflection Coefficient, one must include:
 
