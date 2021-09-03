@@ -1,10 +1,12 @@
-# Dispersive Readout of Multilevel Systems
+""" 
+Dispersive Readout of Multilevel Systems
 
-# by Tara Murphy 
+by Tara Murphy 
 
-#get_ipython().run_line_magic('matplotlib', 'inline')
+Completed during 6 Week Summer Internship at Quantum Motion Technologies, UCL
+"""
 
-#Import all relevant libraries
+#Still have yet to comment code here  - all commented on Jupyter Notebook
 
 import numpy as np
 import matplotlib as plt
@@ -14,7 +16,7 @@ import matplotlib.pyplot as plt
 
 
 class Dispersive_Readout:
-    def __init__(self, g1, g2, k1, k2, gc, w, w0, delta, gamma, so, T):
+    def __init__(self, g1 = 2, g2 = 2, k1 = 10e-3, k2 = 10e-3, gc = 0.1, w = 0.01, w0 = 0.0101, delta = 1, gamma = 0.1, so = 0.01, T = 0.1, H= [], Z = []):
         self.g1 = g1; self.g2 = g2
         self.k1 = k1; self.k2 = k2; self.k = k1 + k2
         self.gc = gc
@@ -23,6 +25,8 @@ class Dispersive_Readout:
         self.gamma = gamma
         self. so = so
         self.T = T
+        self.Sz11 = H
+        self.Z = Z
      
      
        # self.a = self.alpha(B, self.g2, self.g2)
@@ -62,8 +66,17 @@ class Dispersive_Readout:
         w = self.w
         k1 = self.k1; k2 = self.k2; k = k1 + k2;
         
-           #Obtain the Hamiltonian and Z matrix    
-        Sz1 = self.Sz(B, e);
+           #Obtain the Hamiltonian and Z matrix  
+        if self.Sz11 == []:
+            Sz1 = self.Sz(B, e);
+        else:
+            Sz1 = self.Sz11
+            
+        if self.Z == []:
+            sigmaz = np.array([[1,0,0], [0,-1,0], [0,0,1]]);
+        else:
+            sigmaz = self.Z
+        
         sigmaz = np.array([[1,0,0], [0,-1,0], [0,0,1]]);
         dw = w0 - w
         #Determine eigenvalues and Basis
@@ -106,13 +119,19 @@ class Dispersive_Readout:
            
         return [S11, phase, p[0], p[1], p[2]]
     
-    def run(self):
-    #Number of points you would like to run for detuning and magnetic field
-        N = 150
-           
-           #Minimum and Maximum Values of Magnetic Field and Detuning 
-        [Bmin, Bmax] =[0, 5] 
-        [emin, emax] =[-3, 3] 
+    def print_parameters(self):
+        print("g1 = " + str(self.g1))
+        print("g2 = " + str(self.g2))
+        print("T = " + str(self.T))
+        print("so = " + str(self.so))
+        print("gc = " + str(self.gc))
+        print("w0 = " + str(self.w0))
+        print("w = " + str(self.w))
+        print("k1 = " + str(self.k1))
+        print("k2 = " + str(self.k2))
+        
+    
+    def run(self, Bmin= 0 , Bmax=5, emin=-3, emax=3, N = 150, save = False):
            
         B1 = np.linspace(Bmin, Bmax, N )
         e1 = np.linspace(emin, emax, N)
@@ -151,6 +170,73 @@ class Dispersive_Readout:
            
            #Uncomment below if you want to save file    
            #title = "w0 = "+ str(w01)+"3x3.png"
-           #plt.savefig(title)
+        if save == True:
+            title = "Relfection_Coefficient.png" 
+            plt.savefig(title)
            
+        plt.show()
+        
+        
+    def evaluate_sorted(self,B, e): 
+        g1 = self.g1
+        g2 = self.g2 
+        T = self.T
+        so = self.so
+        gc = self.gc
+        gamma = self.gamma 
+        w0 = self.w0
+        w = self.w
+        k1 = self.k1; k2 = self.k2; k = k1 + k2;
+        
+           #Obtain the Hamiltonian and Z matrix  
+        if self.Sz11 == []:
+            Sz1 = self.Sz(B, e);
+        else:
+            Sz1 = self.Sz11
+            
+        if self.Z == []:
+            sigmaz = np.array([[1,0,0], [0,-1,0], [0,0,1]]);
+        else:
+            sigmaz = self.Z
+        
+        sigmaz = np.array([[1,0,0], [0,-1,0], [0,0,1]]);
+        dw = w0 - w
+        #Determine eigenvalues and Basis
+        [eigvals, eigvec] = LA.eig(Sz1)
+        eigvals2 = sorted(eigvals)
+        
+        return eigvals2
+        
+            
+            
+            
+            
+    def plot_eigen(self, emin = -3, emax = 3, N= 150, B = 1, H = []):
+
+       
+        e1 = np.linspace(emin, emax, N)
+        x = []; E1 = []; E2 = []; E3 = [];
+    
+        for e in e1:
+            x = self.evaluate_sorted(B, e)
+            E1.append(x[0])
+            E2.append(x[1])
+            E3.append(x[2])
+    
+    
+    
+        plt.figure()
+        ax = plt.gca()
+        plt.plot(e1, E1, color='green',  linewidth=2, markersize=1, label='$S(0,2)$')
+        plt.plot(e1, E2, color='blue',  linewidth=2, markersize=1, label='$S(1,1)$')
+        plt.plot(e1, E3, color='red', linestyle='dashed', linewidth=2, markersize=1, label='$T_-(1,1)$')
+        plt.xlabel('Detuning $\epsilon$', fontsize = 12, fontweight="bold")
+        plt.ylabel('Eigeneriges', fontsize = 12, fontweight="bold")
+        ax.xaxis.set_tick_params(labelsize=10)
+        ax.yaxis.set_tick_params(labelsize=10)
+    
+        title = "SO = " + str(so)
+        plt.title(title, fontweight="bold", fontsize = 14)
+        #plt.legend()
+        #plt.savefig(title)
         plt.show()
