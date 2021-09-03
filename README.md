@@ -63,3 +63,34 @@ P.run(N = 250)
 ```
 After running the simulation, an output of the reflection coefficient for a variety of different magnetic fields and detuning parameters.
 
+## Plotting Eigenenergies of Singlets and Triplets 
+
+To plot the eigenenergies of the singlets and triplets of your system for a given Magnetic Field, over a range of detuning values, one can run:
+
+```javascript
+P.plot_eigen(B = 1)
+```
+
+where here the magnetic field was initially set to one. 
+
+One can change the range of detuning values accordingly
+
+```javascript
+P.plot_eigen(B = 1, emin = -5, emax = 5)
+```
+
+## Printing out parameters
+
+To print out the relevant parameters for the system, one can use:
+
+```javascript
+P.print_parameters()
+```
+
+## Save Dispersive Scan Readout
+
+If one would like to save the figure simulated for the reflection Coefficient, one must include:
+
+```javascript
+P.run(save = True)
+```
