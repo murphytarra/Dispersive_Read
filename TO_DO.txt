@@ -1,9 +1,9 @@
-Create seperately for 2 and 3 level systems 
+Create seperately for 2 and 3 level systems -Completed
 Print probabiltiies over a wide variety of temperatures
 5 level system?
 N level system?
 Automatic determination of Z matrix?
 
-All those other sweeps with different Y axis
+All those other sweeps with different Y axis - Completed
 
 Reflection Coefficient slice as a function of detuning for given Magnetic field 
