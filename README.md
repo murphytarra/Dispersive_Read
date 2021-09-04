@@ -28,14 +28,16 @@ Multilevel Systems and their Dispersive Readouts are simulated using an approach
 To simulate the dispersive readout scan, first import the package
 
 ```javascript
-from Dispersive_Readout_Package import Dispersive_Readout as dr
+from ECHO import ECHO_3x3 as e3
+from ECHO import ECHO_2x2 as e2
 ```
 
 Create your class
 
 ```javascript
-P =  dr.Dispersive_Readout()
+P =  e3.ECHO_3x3()
 ```
+
 ## Default Parameters
 
 Initial Parameters for the system are set as follows 
@@ -85,7 +87,7 @@ After running the simulation, an output of the reflection coefficient for a vari
 To set-up the simulation for a two level system, we first initialize our class: 
 
 ```javascript
-Q = ECHO_2x2()
+Q = e2.ECHO_2x2()
 ```
 To run the simulation:
 
@@ -125,6 +127,31 @@ If one would like to save the figure simulated for the reflection Coefficient, o
 P.run(save = True)
 ```
 
-## Example Simulation for three level system
+## Sweeps of Different Parameters
+
+For the three level system, one can simulate the following parameter sweeps:
+- Temperature (assuming thermal probabilities)
+- Coherence
+- Cavity Frequency
+
+To run a temperature sweep for a three level system, we can run the following with the initial parameters shown:
+
+```javascript
+P.temp_sweep(B= 1, emin = -3, emax = 3, Tmin = 0.01, Tmax = 1, N = 150)
+```
+
+To run a coherence sweep for a three level system, we can run the following with the initial parameters shown: 
+
+```javascript
+P.coher_sweep(B= 1, emin = -3, emax = 3, gmin = 0.01, gmax = 1, N = 150)
+```
+
+To run a cavity frequency sweep, we run the following: 
+
+```javascript
+P.freq_sweep(B= 1, emin = -3, emax = 3, wmin = 0.01, wmax = 1, N = 150)
+```
+
+
 
 
