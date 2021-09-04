@@ -1,5 +1,5 @@
-import Dispersive_Readout_Package
-from Dispersive_Readout_Package import Dispersive_Readout
+import ECHO
+from ECHO import ECHO_3x3
 #from Dispersive_Readout import Dispersive_Readout
 from Dispersive_Readout_Package import ECHO_2x2
 
