@@ -16,8 +16,12 @@ For further information on the simulation and derivation, please read the includ
 - Ability to plot Eigenvectors of given Hamiltonian
 
 ## Upcoming Features
+- Dispersive Readout for N level System 
+- Automatic Evaluation of Z matrix given initial Hamiltonian
 
 ## Overview
+
+Multilevel Systems and their Dispersive Readouts are simulated using an approach developed by Kohler et al. where the reflected coefficient of a system is dependant on the susceptibility of the system. Scans of the reflected coefficient as a function of detuning and magnetic fields are simulated for a system containing a double quantum dot coupled with a photon. 
 
 ## Initialization 
 
