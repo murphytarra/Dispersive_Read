@@ -1,6 +1,7 @@
 import Dispersive_Readout_Package
 from Dispersive_Readout_Package import Dispersive_Readout
-from Dispersive_Readout import Dispersive_Readout
+#from Dispersive_Readout import Dispersive_Readout
+from Dispersive_Readout_Package import ECHO_2x2
 
 import numpy as np
 import matplotlib as plt
