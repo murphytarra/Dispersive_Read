@@ -15,7 +15,7 @@ import cmath
 import matplotlib.pyplot as plt
 
 
-class Dispersive_Readout:
+class ECHO_3x3:
     def __init__(self, g1 = 2, g2 = 2, k1 = 10e-3, k2 = 10e-3, gc = 0.1, w = 0.01, w0 = 0.0101, delta = 1, gamma = 0.1, so = 0.01, T = 0.1, H= [], Z = []):
         self.g1 = g1; self.g2 = g2
         self.k1 = k1; self.k2 = k2; self.k = k1 + k2
