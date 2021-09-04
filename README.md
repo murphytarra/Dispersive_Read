@@ -8,19 +8,31 @@ This package is a tool which allows you to simulate the Dispersion Readout for M
 
 For further information on the simulation and derivation, please read the included Pdf 'Dispersive Readout of Multilevel Systems'
 
+## Features
+- Dispersive readout for 2 level and 3 level systems
+- Ability to change parameters such as spin orbit interaction, Temperature for Dispersive Readouts
+- Temperature, Frequency and Coherence Sweeps for different applied Magnetic Fields
+- Probability Plots as a function of Temperature
+- Ability to plot Eigenvectors of given Hamiltonian
+
+## Upcoming Features
+
+## Overview
+
 ## Initialization 
 
-To simulate the dispersive readout scan, one must first import the package
+To simulate the dispersive readout scan, first import the package
 
 ```javascript
 from Dispersive_Readout_Package import Dispersive_Readout as dr
 ```
 
-First you must create your class
+Create your class
 
 ```javascript
 P =  dr.Dispersive_Readout()
 ```
+## Default Parameters
 
 Initial Parameters for the system are set as follows 
 
@@ -35,8 +47,9 @@ Initial Parameters for the system are set as follows
 | Spin Orbit Interaction Constant | so | 0.01 |
 | Temperature| T | 0.1 |
 
+The Hamiltonian and Z matrix are initially set for two singlet and the triplet minus state with spin orbit interaction.
 
-If you would like to change the Hamiltonian, Z matrix or any other parameter, one can change these before running the simulation as follows:
+To change the Hamiltonian, Z matrix or any other parameter, one can change these before running the simulation as follows:
 
 ```javascript
 P.gamma = 1;
@@ -62,6 +75,19 @@ To change the resolution of your images, simply increase N, the number of points
 P.run(N = 250)
 ```
 After running the simulation, an output of the reflection coefficient for a variety of different magnetic fields and detuning parameters.
+
+## Running a simulation for a Two Level System 
+
+To set-up the simulation for a two level system, we first initialize our class: 
+
+```javascript
+Q = ECHO_2x2()
+```
+To run the simulation:
+
+```javascript
+Q.run()
+```
 
 ## Plotting Eigenenergies of Singlets and Triplets 
 
