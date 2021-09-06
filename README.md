@@ -9,11 +9,16 @@ This package is a tool which allows you to simulate the Dispersion Readout for M
 For further information on the simulation and derivation, please read the included Pdf 'Dispersive Readout of Multilevel Systems'
 
 ## Features
+
+The code is no where near complete yet! I still have a couple of tweaks to do and will upload on a regular basis. 
+
 - Dispersive readout for 2 level and 3 level systems
 - Ability to change parameters such as spin orbit interaction, Temperature for Dispersive Readouts
 - Temperature, Frequency and Coherence Sweeps for different applied Magnetic Fields
 - Probability Plots as a function of Temperature
 - Ability to plot Eigenvectors of given Hamiltonian
+
+If you have any recommendations or graphs you think might benefit you, please don't hesitate to contact me! 
 
 ## Upcoming Features
 - Dispersive Readout for N level System 
